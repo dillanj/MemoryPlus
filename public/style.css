@@ -1,0 +1,257 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 1.1rem;
+}
+
+body {
+    height: fit-content;
+    background-color: lightseagreen;
+    font-family: 'Abril Fatface', cursive;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+.button {
+    width: 7rem;
+    height: 2rem;
+    background-color: lightseagreen;
+    color:white;
+    border: none;
+    margin-top: 1vh;
+    box-shadow: .1rem .1rem .3rem darkgrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button:hover {
+    cursor: pointer;
+    transition: .2s;
+    opacity: 0.8;
+    box-shadow: .2rem .2rem .4rem darkgrey;
+}
+
+
+#app {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    padding-top: 2vh;
+}
+
+.modalContainer {
+    z-index: 5;
+    margin-top: -2vh;
+    height: 112vh;
+    width: 100vw;
+    background-color: rgba(28, 93, 102, 0.7);
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#welcomeModal {
+    
+    z-index: 6;
+    min-height: 40vh;
+    height: fit-content;
+    width: 50%;
+    background: whitesmoke;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 3vh;
+}
+
+#modalOptionsContainer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 80%;
+    height: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#modalOption:nth-child(1) {
+    border-right: solid thin lightslategray;
+}
+
+#modalOption {
+    height: 100%;
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#modalOption input {
+    width: 90%;
+    height: 1em;
+    font-size: 1.4rem;
+    font-weight: 100;
+    border-color: lightblue;
+    padding: .5vh .5vw;
+    color: lightseagreen;
+    margin-bottom: 5%;
+}
+
+#modalExitContainer {
+    align-self: flex-end;
+    margin-right: 1vw;
+    margin-top: 1vh;
+}
+
+#modalExitContainer span {
+    font-size: 2.5rem;
+    color: lightseagreen;
+}
+
+#modalExitContainer span:hover {
+    color: orange;
+    cursor: pointer;
+}
+
+input {
+    border: solid orange thick;
+}
+
+#loadingModal {
+    z-index: 6;
+    min-height: 40vh;
+    height: fit-content;
+    width: 50%;
+    background: whitesmoke;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding-bottom: 3vh;
+}
+
+#loadingModal h1 {
+    color: orange;
+    font-size: 2rem;
+}
+
+#gameOverModal {
+    z-index: 6;
+    min-height: 40vh;
+    height: fit-content;
+    width: 50%;
+    background: whitesmoke;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 3vh;
+    color: orange;
+}
+
+#gameOverModal p{
+    font-size: 2rem;
+}
+
+
+#scoreBoardContainer {
+    background-color: red;
+    width: 30vw;
+    height: 16vh;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2vh;
+    z-index: 1;
+    display: flex;
+    justify-content: space-evenly;
+    border: solid orange thick;
+}
+
+.scoreBoardSide {
+    background-color: whitesmoke;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#scoreBoardL {
+    border-right: thin solid orange;
+    color: lightcoral;
+    font-size: 5rem;
+}
+
+#scoreBoardR {
+    border-left: thin solid orange;
+    color: lightskyblue;
+    font-size: 5rem;
+}
+
+#gameBoardContainer {
+    height: 90vh;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    font-family: 'Nanum Pen Script', cursive;
+}
+
+#gameCard {
+    width: 19%;
+    height: 21vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    text-align: center;
+    background-color: whitesmoke;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    color: orange;
+}
+
+#gameCard p {
+    font-size: 3rem;
+}
+
+.playerAPair {
+    border: lightcoral solid thick;
+}
+
+.playerBPair {
+    border: lightblue solid thick;
+}
+
+#cardBackSide {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    background-image: url('./images/card-backside.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* background-size: contain; */
+    background-position: center;
+
+}
+
+#cardBackSide img{
+    /* height: 100%; */
+    width: 100%;
+    height: fit-content;
+}

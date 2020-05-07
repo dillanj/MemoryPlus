@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Memory+</title>
+        <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="animations.css">
+        <link rel="stylesheet" href="style.css">
+        <link rel="shortcut icon" type="image/ico" href="./images/favicon.ico"/>
+
+    </head>
+
+    <body>
+        <div id="app">
+            <!-- WELCOME / LOADING MODAL -->
+            <div class="modalContainer" v-if="showModal">
+
+                <div id="welcomeModal" v-if="showWelcomeModal">
+                    <div id="modalExitContainer"><span v-on:click="exitModalClicked">&times;</span></div>
+                    <div id="modalOptionsContainer">
+
+                        <div id="modalOption">
+                            <div class="button" v-on:click="enterNewMatchClicked">New Match</div>
+                        </div>
+                        <div id="modalOption">
+                            <input style="color:orange" placeholder="Enter Match Token" v-model="welcomeModal.existingGameToken">
+                            <div class="button" v-on:click="enterExistingMatchClicked">Enter Match</div>
+                        </div>
+    
+                    </div>
+                    <!-- <div id="valErrors" v-if="showErrors">
+                        <p>You Must Fix These Errors To Sign In</p>
+                        <ul>
+                            <li v-for="err in validationErrors">{{err}}</li>
+                        </ul>
+                    </div> -->
+                </div>
+
+                <!-- LOADING SCREEN -->
+
+                <div id="loadingModal" v-if="showLoadingModal"> 
+                    <div id="gameToken"> Game Token:</div>
+                    <h1>{{gameState.game_token}}</h1> 
+                    <div id="progressBar">Connecting . . . . . . </div>
+                </div>
+
+                <!-- WINNERS SCREEN -->
+                <div id="gameOverModal" v-if="showGameOverModal"> 
+                    <p>The winner is {{gameState.game_winner}}!</p>
+                </div>
+
+
+            </div>
+
+
+            <!-- GAME -->
+            <div v-if="showGameBoard">
+                <div id="scoreBoardContainer">
+                    <div class="scoreBoardSide" id="scoreBoardL">{{gameState.aScore}}</div>
+                    <div class="scoreBoardSide" id="scoreBoardR">{{gameState.bScore}}</div>
+                </div>
+                <div style="text-align:center;color:orange" v-if="playerData.isPlayerA && gameState.playerATurn">Your Turn!</div>
+                <div style="text-align:center;color:orange"  v-if="playerData.isPlayerB && gameState.playerBTurn">Your Turn!</div>
+                <div style="text-align:center;color:orange"  v-if="playerData.isPlayerA && gameState.playerBTurn">Opponents Turn!</div>
+                <div style="text-align:center;color:orange"  v-if="playerData.isPlayerB && gameState.playerATurn">Opponents Turn!</div>
+            
+
+
+
+                <div id="gameBoardContainer">
+                    <div id="gameCard" v-bind:class="{ playerAPair: card.pairedByPlayer == playerData.id && playerData.isPlayerA , 'playerBPair': card.pairedByPlayer == playerData.id && playerData.isPlayerB }" v-for="card in gameState.game_cards" v-on:click="flipCard(card)">
+                        <p v-if="card.isShown">{{card.value}}</p>
+                        <div v-else class="flipInY" id="cardBackSide">
+                            
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
+            
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="app.js"></script>
+    </body>
+
+
+
+
+</html>
